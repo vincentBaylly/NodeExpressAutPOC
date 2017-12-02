@@ -2,6 +2,11 @@
 
 This project was generated with [angular-cli](https://github.com/angular/angular-cli) version 1.0.0-beta.28.3.
 
+Helped with the tutorial:
+MEAN Stack with Angular 2 - User Registration and Login Example & Tutorial
+
+For details and documentation go to http://jasonwatmore.com/post/2017/02/22/mean-with-angular-2-user-registration-and-login-example-tutorial
+
 Use express server [express](https://github.com/expressjs/express) version 4.16.X
 
 Make a call to a ldap server with the librairie [ldapjs](https://github.com/mcavage/node-ldapjs) version 1.0.X
