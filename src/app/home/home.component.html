@@ -1,18 +1,34 @@
-<div class="ypgHeader">
-  <a href="" class="logo">DF - Deployer</a>
-
-  <div class="ypgAccessibility">
-    <ul>
-      <li> <strong></strong></li>
-      <li> | </li>
-      <li>
-
-      </li>
-
-      <li> | </li>
-      <li><a [routerLink]="['/login']">Logout</a></li>
-    </ul>
-
+<div class="panel panel-default">
+    <div class="panel-body-red">
+      <form name="form" (ngSubmit)="f.form.valid && login()" #f="ngForm" novalidate class="form-inline">
+          <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !application.valid }">
+              <label for="application">Application</label>
+              <select type="application" class="form-control" name="application" id="application" [(ngModel)]="model.application" #application="ngModel" required>
+                <option *ngFor="let appliToDeploy of deployForm.appOptions" [ngValue]="appliToDeploy.id">{{appliToDeploy.name}}</option>
+              </select>
+          </div>
+          <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !host.valid }">
+              <label for="host">Host</label>
+              <select type="host" class="form-control" name="host" id="host" [(ngModel)]="model.host" #host="ngModel" required>
+                <option *ngFor="let hostToDeploy of deployForm.hostOptions" [ngValue]="hostToDeploy">{{hostToDeploy}}</option>
+              </select>
+          </div>
+          <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !version.valid }">
+              <label for="version">Version</label>
+              <select type="version" class="form-control" name="version" id="version" [(ngModel)]="model.version" #version="ngModel" required>
+                <option *ngFor="let versionToDeploy of deployForm.versionOptions" [ngValue]="versionToDeploy">{{versionToDeploy}}</option>
+              </select>
+          </div>
+          <div class="form-group">
+              <button class="btn btn-black">Start</button>
+          </div>
+      </form>
   </div>
-  <panel [title]="'+'" >static content</panel>
 </div>
+<div class="panel panel-default">
+    <div class="panel-body">
+    	<div class="panel panel-console">
+    		<div class="panel-body">{{this.catalinaOut}}</div>
+  		</div>
+     </div>
+  </div>

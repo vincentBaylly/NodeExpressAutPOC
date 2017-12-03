@@ -6,11 +6,14 @@ import { HttpModule } from '@angular/http';
 import { AppComponent }  from './app.component';
 import { routing }        from './app.routing';
 
-import { AlertComponent, PanelCollapse } from './_directives/index';
+import { DEPLOY_CONFIG, DeployConfig, IDeployConfig } from './_configs/index';
+import { AlertComponent, ModalComponent } from './_directives/index';
 import { AuthGuard } from './_guards/index';
-import { AlertService, AuthenticationService, UserService } from './_services/index';
+import { AlertService, AuthenticationService, UserService, ModalService, ConsoleService, ConfigService} from './_services/index';
 import { HomeComponent } from './home/index';
 import { LoginComponent } from './login/index';
+import { FooterComponent } from './footer/footer.component';
+import { MenuComponent } from './menu/menu.component';
 
 @NgModule({
   imports: [
@@ -21,16 +24,22 @@ import { LoginComponent } from './login/index';
   ],
   declarations: [
     AppComponent,
-    PanelCollapse,
+    ModalComponent,
     AlertComponent,
     HomeComponent,
     LoginComponent,
+    FooterComponent,
+    MenuComponent
   ],
   providers: [
     AuthGuard,
     AlertService,
+    ModalService,
     AuthenticationService,
-    UserService
+    UserService,
+    ConsoleService,
+    ConfigService,
+    {provide: DEPLOY_CONFIG, useValue: DeployConfig}
   ],
   bootstrap: [AppComponent]
 })
